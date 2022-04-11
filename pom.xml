@@ -20,6 +20,10 @@
 		<java.version>11</java.version>
 		<mysql.version>8.0.28</mysql.version>
 		<flyway.version>8.5.5</flyway.version>
+		<lombok.version>1.18.22</lombok.version>
+		<json.version>2.9.0</json.version>
+		<junit.version>4.13.2</junit.version>
+		<mockito.version>4.4.0</mockito.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -39,7 +43,8 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -60,42 +65,51 @@
 			<version>${flyway.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${json.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
 		<plugins>
+
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>${flyway.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.flywaydb</groupId>
+						<artifactId>flyway-core</artifactId>
+						<version>${flyway.version}</version>
+					</dependency>
+				</dependencies>
 				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
+					<url>jdbc:mysql://localhost:3306/pet_shelter</url>
+					<driver>com.mysql.jdbc.Driver</driver>
+					<user>bestuser</user>
+					<password>Bestuser_111</password>
+					<locations>filesystem:db/migration</locations>
 				</configuration>
 			</plugin>
-
-<!--			<plugin>-->
-<!--				<groupId>org.flywaydb</groupId>-->
-<!--				<artifactId>flyway-maven-plugin</artifactId>-->
-<!--				<version>${flyway.version}</version>-->
-<!--				<dependencies>-->
-<!--					<dependency>-->
-<!--						<groupId>org.flywaydb</groupId>-->
-<!--						<artifactId>flyway-core</artifactId>-->
-<!--						<version>${flyway.version}</version>-->
-<!--					</dependency>-->
-<!--				</dependencies>-->
-<!--				<configuration>-->
-<!--					<url>jdbc:mysql://localhost:3306/pet_shelter</url>-->
-<!--					<driver>com.mysql.jdbc.Driver</driver>-->
-<!--					<user>bestuser</user>-->
-<!--					<password>Bestuser_111</password>-->
-<!--					<locations>filesystem:db/migration</locations>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
 		</plugins>
 	</build>
 

@@ -16,6 +16,6 @@ public class PhoneNumber {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "number_phone")
+    @Column(name = "number_phone", nullable = false)
     private String phoneNumber;
 }

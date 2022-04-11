@@ -4,38 +4,47 @@ import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
 @Component
 @Entity
-@Table(name = "shelter")
-public class Shelter {
+@Table(name = "curator")
+@Data
+public class Curator {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
+
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
+
+    @Column(name = "patronymic")
+    private String patronymic;
+
+    @Column(name = "date_birth", nullable = false)
+    private LocalDate dateBirth;
 
     @Column(name = "address", nullable = false)
     private String address;
 
-    @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
-            mappedBy = "shelter")
+    @OneToMany(mappedBy = "curator", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Pet> pets;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "phones_shelter", joinColumns = @JoinColumn(name = "shelter_id"),
+    @JoinTable(name = "phones_curator", joinColumns = @JoinColumn(name = "curator_id"),
             inverseJoinColumns = @JoinColumn(name = "phone_number_id"))
     private List<PhoneNumber> phones;
 
     @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinTable(name = "shelter_curator", joinColumns = @JoinColumn(name = "shelter_id"), inverseJoinColumns = @JoinColumn(name = "curator_id"))
-    private List<Curator> curators;
+    @JoinTable(name = "shelter_curator", joinColumns = @JoinColumn(name = "curator_id"), inverseJoinColumns = @JoinColumn(name = "shelter_id"))
+    private List<Shelter> shelters;
 
     public void addPet(Pet pet) {
         if (pets == null) {
@@ -63,16 +72,16 @@ public class Shelter {
         }
     }
 
-    public void addCurator(Curator curator) {
-        if (curators == null) {
-            curators = new ArrayList<>();
+    public void addShelter(Shelter shelter) {
+        if (shelters == null) {
+            shelters = new ArrayList<>();
         }
-        curators.add(curator);
+        shelters.add(shelter);
     }
 
-    public void deleteCurator(Curator curator) {
-        if (curators != null) {
-            curators.remove(curator);
+    public void deleteShelter(Shelter shelter) {
+        if (shelters != null) {
+            shelters.remove(shelter);
         }
     }
 }
