@@ -1,8 +1,8 @@
-package com.mikhail.golovackii.pet_shelter.controller;
+package com.mikhail.golovackii.pet_shelter.controllers.RESTcontroller;
 
 import java.util.List;
 
-public interface BaseController <T, ID> {
+public interface BaseRESTController<T, ID> {
     void saveElem(T elem);
 
     void updateElem(T elem);

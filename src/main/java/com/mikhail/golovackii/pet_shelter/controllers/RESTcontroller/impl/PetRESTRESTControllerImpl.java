@@ -1,6 +1,6 @@
-package com.mikhail.golovackii.pet_shelter.controller.impl;
+package com.mikhail.golovackii.pet_shelter.controllers.RESTcontroller.impl;
 
-import com.mikhail.golovackii.pet_shelter.controller.PetController;
+import com.mikhail.golovackii.pet_shelter.controllers.RESTcontroller.PetRESTController;
 import com.mikhail.golovackii.pet_shelter.model.Pet;
 import com.mikhail.golovackii.pet_shelter.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/pets")
-public class PetControllerImpl implements PetController {
+@RequestMapping("/rest/api/pets")
+public class PetRESTRESTControllerImpl implements PetRESTController {
 
     @Autowired
     private PetService petService;

@@ -1,6 +1,6 @@
-package com.mikhail.golovackii.pet_shelter.controller.impl;
+package com.mikhail.golovackii.pet_shelter.controllers.RESTcontroller.impl;
 
-import com.mikhail.golovackii.pet_shelter.controller.CuratorController;
+import com.mikhail.golovackii.pet_shelter.controllers.RESTcontroller.CuratorRESTController;
 import com.mikhail.golovackii.pet_shelter.model.Curator;
 import com.mikhail.golovackii.pet_shelter.service.CuratorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/curators")
-public class CuratorControllerIml implements CuratorController {
+@RequestMapping("/rest/api/curators")
+public class CuratorRESTRESTControllerImpl implements CuratorRESTController {
 
     @Autowired
     private CuratorService curatorService;
