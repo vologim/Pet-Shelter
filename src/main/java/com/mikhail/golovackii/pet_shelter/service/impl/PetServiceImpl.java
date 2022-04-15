@@ -38,4 +38,9 @@ public class PetServiceImpl implements PetService {
     public void deleteElemById(Long id) {
         petRepository.deleteById(id);
     }
+
+    @Override
+    public Long getQuantityPets() {
+        return petRepository.count();
+    }
 }

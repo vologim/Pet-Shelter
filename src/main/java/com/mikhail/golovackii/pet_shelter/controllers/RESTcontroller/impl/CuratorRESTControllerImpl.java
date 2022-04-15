@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/rest/api/curators")
-public class CuratorRESTRESTControllerImpl implements CuratorRESTController {
+public class CuratorRESTControllerImpl implements CuratorRESTController {
 
     @Autowired
     private CuratorService curatorService;

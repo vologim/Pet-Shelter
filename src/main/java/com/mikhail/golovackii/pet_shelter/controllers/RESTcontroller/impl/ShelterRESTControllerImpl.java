@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/rest/api/shelters")
-public class ShelterRESTRESTControllerImpl implements ShelterRESTController {
+public class ShelterRESTControllerImpl implements ShelterRESTController {
 
     @Autowired
     private ShelterService shelterService;

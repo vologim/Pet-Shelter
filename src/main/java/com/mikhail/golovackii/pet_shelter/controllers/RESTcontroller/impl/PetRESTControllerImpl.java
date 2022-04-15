@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/rest/api/pets")
-public class PetRESTRESTControllerImpl implements PetRESTController {
+public class PetRESTControllerImpl implements PetRESTController {
 
     @Autowired
     private PetService petService;

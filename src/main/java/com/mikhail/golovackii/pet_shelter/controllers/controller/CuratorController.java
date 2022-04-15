@@ -1,4 +1,6 @@
 package com.mikhail.golovackii.pet_shelter.controllers.controller;
 
-public interface CuratorController {
+import com.mikhail.golovackii.pet_shelter.model.Curator;
+
+public interface CuratorController extends BaseController<Curator, Long> {
 }

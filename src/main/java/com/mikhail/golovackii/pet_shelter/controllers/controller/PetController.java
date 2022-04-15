@@ -1,4 +1,6 @@
 package com.mikhail.golovackii.pet_shelter.controllers.controller;
 
-public interface PetController {
+import com.mikhail.golovackii.pet_shelter.model.Pet;
+
+public interface PetController extends BaseController<Pet, Long> {
 }

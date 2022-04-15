@@ -18,13 +18,14 @@
 	</description>
 	<properties>
 		<java.version>11</java.version>
-		<mysql.version>8.0.28</mysql.version>
-		<flyway.version>8.5.5</flyway.version>
+		<mysql.version>8.0.27</mysql.version>
+		<flyway.version>8.5.7</flyway.version>
 		<lombok.version>1.18.22</lombok.version>
 		<json.version>2.9.0</json.version>
 		<junit.version>4.13.2</junit.version>
 		<mockito.version>4.4.0</mockito.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -38,6 +39,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
 		<dependency>

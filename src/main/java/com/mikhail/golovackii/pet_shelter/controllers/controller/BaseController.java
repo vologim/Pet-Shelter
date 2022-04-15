@@ -3,13 +3,13 @@ package com.mikhail.golovackii.pet_shelter.controllers.controller;
 import java.util.List;
 
 public interface BaseController<T, ID> {
-    void saveElem(T elem);
+    String saveElem(T elem);
 
-    void updateElem(T elem);
+    String updateElem(T elem);
 
-    T getElemById(ID id);
+    String getElemById(ID id);
 
-    List<T> getAllElements();
+    String getAllElements();
 
-    void deleteElemById(ID id);
+    String deleteElemById(ID id);
 }
