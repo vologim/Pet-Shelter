@@ -20,20 +20,25 @@
 
     <br/>
 
-<!--upload photo-->
+    <label for="photo">Фото питомца</label>
+    <input id="photo" type="file"/>
 
     <br/>
 
-    <label for="dateBirth">Введите дату рождения</label>
+    <label for="dateBirth">Укажите дату рождения</label>
     <input type="date" th:field="*{dateBirth}" id="dateBirth"/>
 
     <br/>
 
-<!--    pet breed -->
+    <label for="breed">Выберите породу</label>
+    <select id="breed" th:field="*{breed}">
+        <option th:each="breed : ${T(com.mikhail.golovackii.pet_shelter.model.PetBreed).values()}"
+                th:value="${breed}" th:text="${breed.value}"></option>
+    </select>
 
     <br/>
 
-    <label for="sex">Пол</label>
+    <label for="sex">Выберите пол</label>
     <select id="sex" th:field="*{sex}">
         <option th:each="sex : ${T(com.mikhail.golovackii.pet_shelter.model.Sex).values()}"
                 th:value="${sex}" th:text="${sex.value}"></option>
@@ -46,10 +51,12 @@
 
     <br/>
 
-<!--    information -->
-    <textarea name="information" th:field="*{information}">
+    <label for="information">Информация</label>
+    <textarea id="information" name="information" th:field="*{information}"></textarea>
 
-    </textarea>
+    <br/>
+
+    <input type="submit" value="Сохранить">
 </form>
 
 </body>
