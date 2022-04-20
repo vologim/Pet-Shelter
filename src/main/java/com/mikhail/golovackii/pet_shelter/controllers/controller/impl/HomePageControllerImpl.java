@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/main")
+@RequestMapping("/home")
 public class HomePageControllerImpl implements HomePageController {
 
+    private final PetService petService;
+
     @Autowired
-    private PetService petService;
+    public HomePageControllerImpl(PetService petService) {
+        this.petService = petService;
+    }
 
     @Override
     @GetMapping

@@ -20,6 +20,7 @@ create table curator(
 
 create table pet(
     id bigint primary key auto_increment,
+    name varchar(15) not null,
     type varchar(10) not null,
     address_photo varchar(255) not null,
     date_birth date,

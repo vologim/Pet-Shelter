@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New pet</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/pet}" th:object="${newPet}">
+    <label for="name">Введите имя</label>
+    <input type="text" th:field="*{name}" id="name"/>
+
+    <br/>
+
+    <label for="type">Выберите тип питомца</label>
+    <select id="type" th:field="*{typePet}">
+        <option th:each="color : ${T(com.mikhail.golovackii.pet_shelter.model.TypePet).values()}"
+                th:value="${color}" th:text="${color.value}"></option>
+    </select>
+
+    <br/>
+
+<!--upload photo-->
+
+    <br/>
+
+    <label for="dateBirth">Введите дату рождения</label>
+    <input type="date" th:field="*{dateBirth}" id="dateBirth"/>
+
+    <br/>
+
+<!--    pet breed -->
+
+    <br/>
+
+    <label for="sex">Пол</label>
+    <select id="sex" th:field="*{sex}">
+        <option th:each="sex : ${T(com.mikhail.golovackii.pet_shelter.model.Sex).values()}"
+                th:value="${sex}" th:text="${sex.value}"></option>
+    </select>
+
+    <br/>
+
+    <label for="color">Введите цвет</label>
+    <input type="text" th:field="*{color}" id="color">
+
+    <br/>
+
+<!--    information -->
+    <textarea name="information" th:field="*{information}">
+
+    </textarea>
+</form>
+
+</body>
+</html>

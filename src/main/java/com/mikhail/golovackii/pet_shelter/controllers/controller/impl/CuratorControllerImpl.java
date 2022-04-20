@@ -2,33 +2,17 @@ package com.mikhail.golovackii.pet_shelter.controllers.controller.impl;
 
 import com.mikhail.golovackii.pet_shelter.controllers.controller.CuratorController;
 import com.mikhail.golovackii.pet_shelter.model.Curator;
+import com.mikhail.golovackii.pet_shelter.service.CuratorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/curator")
 public class CuratorControllerImpl implements CuratorController {
 
-    @Override
-    public String saveElem(Curator elem) {
-        return null;
-    }
+    @Autowired
+    private CuratorService curatorService;
 
-    @Override
-    public String updateElem(Curator elem) {
-        return null;
-    }
-
-    @Override
-    public String getElemById(Long id) {
-        return null;
-    }
-
-    @Override
-    public String getAllElements() {
-        return null;
-    }
-
-    @Override
-    public String deleteElemById(Long id) {
-        return null;
-    }
 }

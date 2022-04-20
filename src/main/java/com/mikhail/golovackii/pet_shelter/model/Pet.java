@@ -1,6 +1,7 @@
 package com.mikhail.golovackii.pet_shelter.model;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -17,6 +18,9 @@ public class Pet {
     @Column(name = "id")
     private long id;
 
+    @Column(name = "name")
+    private String name;
+
     @Column(name = "type")
     @Enumerated(EnumType.STRING)
     private TypePet typePet;
@@ -25,6 +29,7 @@ public class Pet {
     private String addressPhoto;
 
     @Column(name = "date_birth")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate dateBirth;
 
     @Column(name = "breed")

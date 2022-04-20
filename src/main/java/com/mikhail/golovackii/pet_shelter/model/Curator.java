@@ -1,6 +1,7 @@
 package com.mikhail.golovackii.pet_shelter.model;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -29,6 +30,7 @@ public class Curator {
     private String patronymic;
 
     @Column(name = "date_birth", nullable = false)
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate dateBirth;
 
     @Column(name = "address", nullable = false)
