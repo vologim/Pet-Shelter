@@ -8,14 +8,14 @@
 
 <form th:method="POST" th:action="@{/pet}" th:object="${newPet}">
     <label for="name">Введите имя</label>
-    <input type="text" th:field="*{name}" id="name"/>
+    <input type="text" th:field="${newPet.name}" id="name"/>
 
     <br/>
 
     <label for="type">Выберите тип питомца</label>
-    <select id="type" th:field="*{typePet}">
-        <option th:each="color : ${T(com.mikhail.golovackii.pet_shelter.model.TypePet).values()}"
-                th:value="${color}" th:text="${color.value}"></option>
+    <select id="type" th:field="${newPet.typePet}">
+        <option th:each="type : ${T(com.mikhail.golovackii.pet_shelter.model.TypePet).values()}"
+                th:value="${type}" th:text="${type.value}"></option>
     </select>
 
     <br/>
@@ -26,12 +26,12 @@
     <br/>
 
     <label for="dateBirth">Укажите дату рождения</label>
-    <input type="date" th:field="*{dateBirth}" id="dateBirth"/>
+    <input type="date" th:field="${newPet.dateBirth}" id="dateBirth"/>
 
     <br/>
 
     <label for="breed">Выберите породу</label>
-    <select id="breed" th:field="*{breed}">
+    <select id="breed" th:field="${newPet.breed}">
         <option th:each="breed : ${T(com.mikhail.golovackii.pet_shelter.model.PetBreed).values()}"
                 th:value="${breed}" th:text="${breed.value}"></option>
     </select>
@@ -39,7 +39,7 @@
     <br/>
 
     <label for="sex">Выберите пол</label>
-    <select id="sex" th:field="*{sex}">
+    <select id="sex" th:field="${newPet.sex}">
         <option th:each="sex : ${T(com.mikhail.golovackii.pet_shelter.model.Sex).values()}"
                 th:value="${sex}" th:text="${sex.value}"></option>
     </select>
@@ -47,12 +47,12 @@
     <br/>
 
     <label for="color">Введите цвет</label>
-    <input type="text" th:field="*{color}" id="color">
+    <input type="text" th:field="${newPet.color}" id="color">
 
     <br/>
 
     <label for="information">Информация</label>
-    <textarea id="information" name="information" th:field="*{information}"></textarea>
+    <textarea id="information" name="information" th:field="${newPet.information}"></textarea>
 
     <br/>
 

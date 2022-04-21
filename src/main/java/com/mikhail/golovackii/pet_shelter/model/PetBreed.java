@@ -11,7 +11,7 @@ public enum PetBreed {
     CHIHUAHUA("чихуахуа"),
     ROTTWEILER("ротвейлер"),
     CORGI("корги"),
-    BULLDOG(",ekmlju"),
+    BULLDOG("бульдог"),
     HUSKY("хаски"),
     PUG("мопс"),
 

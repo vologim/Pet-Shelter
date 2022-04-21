@@ -29,7 +29,7 @@ public class Pet {
     private String addressPhoto;
 
     @Column(name = "date_birth")
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+//    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate dateBirth;
 
     @Column(name = "breed")
