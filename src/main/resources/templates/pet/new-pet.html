@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form th:method="POST" th:action="@{/pet}" th:object="${newPet}">
+<form th:method="POST" th:action="@{/pet}" th:object="${newPet}" enctype="multipart/form-data">
     <label for="name">Введите имя</label>
     <input type="text" th:field="${newPet.name}" id="name"/>
 
@@ -17,11 +17,6 @@
         <option th:each="type : ${T(com.mikhail.golovackii.pet_shelter.model.TypePet).values()}"
                 th:value="${type}" th:text="${type.value}"></option>
     </select>
-
-    <br/>
-
-    <label for="photo">Фото питомца</label>
-    <input id="photo" type="file"/>
 
     <br/>
 
@@ -54,6 +49,31 @@
     <label for="information">Информация</label>
     <textarea id="information" name="information" th:field="${newPet.information}"></textarea>
 
+    <br/>
+
+    <label for="file">Фото питомца</label>
+    <input id="file" type="file" th:name="files">
+
+    <br/>
+
+    <label for="curator">Выберите волонтера</label>
+    <select id="curator" th:field="${newPet.curator}">
+        <option th:each="curator : ${curators}"
+                th:value="${curator.getId()}"
+                th:text="${curator.getFirstName()} + ' ' + ${curator.getLastName()} + ' ' + ${curator.getPatronymic()}"></option>
+    </select>
+
+    <br/>
+
+    <label for="shelter">Выберите приют</label>
+    <select id="shelter" th:field="${newPet.shelter}">
+        <option th:each="shelter : ${shelters}"
+                th:value="${shelter.getId()}"
+                th:text="${shelter.getName()} + ', ' + ${shelter.getAddress()}"></option>
+    </select>
+
+    <br/>
+    <br/>
     <br/>
 
     <input type="submit" value="Сохранить">

@@ -24,6 +24,8 @@
 		<json.version>2.9.0</json.version>
 		<junit.version>4.13.2</junit.version>
 		<mockito.version>4.4.0</mockito.version>
+		<fileupload.version>1.4</fileupload.version>
+		<commons-io.version>2.11.0</commons-io.version>
 	</properties>
 
 	<dependencies>
@@ -44,6 +46,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${fileupload.version}</version>
+		</dependency>
+
+<!--		<dependency>-->
+<!--			<groupId>commons-io</groupId>-->
+<!--			<artifactId>commons-io</artifactId>-->
+<!--			<version>${commons-io.version}</version>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
